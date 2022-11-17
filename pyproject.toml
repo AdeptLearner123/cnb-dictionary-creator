@@ -9,6 +9,15 @@ packages = [{include = "cnb_dictionary_creator"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.poetry.scripts]
+format                          = "tasks:format"
+
+wiki-filter-1                   = "cnb_dictionary_creator.wiki_filter_1.wiki_filter_1:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+black = "^22.10.0"
+isort = "^5.10.1"
 
 [build-system]
 requires = ["poetry-core"]
