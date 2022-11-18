@@ -1,21 +1,26 @@
 [tool.poetry]
-name = "cnb-dictionary-creator"
+name = "cnb-oxford-dictionary"
 version = "0.1.0"
 description = ""
 authors = ["Nalu Zou"]
 readme = "README.md"
-packages = [{include = "cnb_dictionary_creator"}]
+packages = [{include = "cnb_oxford_dictionary"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+wordfreq = "^3.0.3"
+requests = "^2.28.1"
+tqdm = "^4.64.1"
 
 [tool.poetry.scripts]
 format                          = "tasks:format"
 
-wiki-filter-1                   = "cnb_dictionary_creator.wiki_filter_1.wiki_filter_1:main"
+scrape-oxford-lemmas            = "cnb_oxford_dictionary.word_list_scraper.scrape_lemmas:main"
+compile-oxford-lemmas           = "cnb_oxford_dictionary.word_list_scraper.compile_lemmas:main"
+word-freq-filter                = "cnb_oxford_dictionary.word_freq_filter.filter:main"
+definitions-download            = "cnb_oxford_dictionary.definitions_download.download:main"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
 black = "^22.10.0"
 isort = "^5.10.1"
 

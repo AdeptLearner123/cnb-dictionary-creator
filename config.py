@@ -1,6 +1,14 @@
-OXFORD_WORDS = "static/oxford_words.txt"
-WIKI_TITLES = "static/wiki_titles.txt"
+# Caches
+SENTENCES_CACHE = "data/caches/sentences_cache.sqlite"
+DEFINITIONS_CACHE = "data/caches/definitions_cache.sqlite"
 
-WIKI_FILTER_1_OUTPUT = "output/wiki_filter_1.txt"
+# Scraper
+SCRAPED_LEMMAS_DIR = "data/word_list_scraper/lemmas"
+SCRAPED_INDICES_DIR = "data/word_list_scraper/indices"
+ALL_LEMMAS = "data/word_list_scraper/words.txt"
 
-TESTS_DATA = "tests/data/"
+# Downloading
+MISSING_DEFINITIONS = "data/definitions_download/missing_definitions.txt"
+
+# Processing Stages
+WORD_FREQ_FILTERED = "data/output/word_freq_filtered.txt"
