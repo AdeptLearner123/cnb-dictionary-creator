@@ -15,14 +15,20 @@ tqdm = "^4.64.1"
 [tool.poetry.scripts]
 format                          = "tasks:format"
 
+word-freq                       = "tools.word_freq:main"
+
 scrape-oxford-lemmas            = "cnb_oxford_dictionary.word_list_scraper.scrape_lemmas:main"
 compile-oxford-lemmas           = "cnb_oxford_dictionary.word_list_scraper.compile_lemmas:main"
 word-freq-filter                = "cnb_oxford_dictionary.word_freq_filter.filter:main"
 definitions-download            = "cnb_oxford_dictionary.definitions_download.download:main"
+clue-token-filter               = "cnb_oxford_dictionary.clue_filter.clue_token_filter:main"
+compound-clue-filter            = "cnb_oxford_dictionary.clue_filter.compound_clue_filter:main"
+sentences-download              = "cnb_oxford_dictionary.sentences_download.download:main"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
 isort = "^5.10.1"
+pytest = "^7.2.0"
 
 [build-system]
 requires = ["poetry-core"]
