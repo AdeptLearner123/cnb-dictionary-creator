@@ -21,3 +21,9 @@ MISSING_SENTENCES = "data/sentences_download/missing_sentences.txt"
 WORD_FREQ_FILTERED = "data/output/word_freq_filtered.txt"
 CLUE_TOKEN_FILTERED = "data/output/clue_token_filtered.json"
 COMPOUND_CLUE_FILTERED = "data/output/compound_clue_filtered.json"
+SEM_LINK_FILTERED = "data/output/sem_link_filtered.json"
+
+# Final outputs
+CLUE_TOKEN_DICT = "data/output/clue_token_dict.json"
+COMPOUND_DICT = "data/output/compound_dict.json"
+SEM_LINK_DICT = "data/output/sem_link_dict.json"

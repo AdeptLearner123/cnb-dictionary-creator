@@ -1,4 +1,5 @@
 from cnb_oxford_dictionary.utils.tokenizer import tokenize
+from cnb_oxford_dictionary.utils.definitions import is_proper
 from wordfreq import word_frequency
 
 LEXICAL_CATEGORIES = set(["adjective", "verb", "noun"])
@@ -11,13 +12,6 @@ def get_clue_variants(json):
     variants = [ variant_form["text"] for variant_form in json["variantForms"] ]
     variants = [ variant for variant in variants if len(tokenize(variant)) == 1 ]
     return variants
-
-
-def is_proper(entry):
-    if "grammaticalFeatures" not in entry:
-        return False
-    grammatical_features = [ item["id"] for item in entry["grammaticalFeatures"] ]
-    return "proper" in grammatical_features
 
 
 def extract_clue_tokens(lexical_entry, entry, sense):

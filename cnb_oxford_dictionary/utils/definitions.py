@@ -39,3 +39,29 @@ def get_sense_to_entry(definitions_cache):
         sense_to_entry[sense_id] = (lexical_entry, entry, sense)
     
     return sense_to_entry
+
+
+def append_period(sentence):
+    if sentence[-1] != ".":
+        return sentence + "."
+    return sentence
+
+
+def get_definition_text(entry, sense):
+    if "definitions" not in sense:
+        return None
+
+    sentences = [ sense["definitions"][0]]
+    if "notes" in entry:
+        for note in entry["notes"]:
+            if note["type"] == "encyclopedicNote":
+                sentences.append(note["text"])
+     
+    return " ".join([ append_period(sentence) for sentence in sentences]).strip()
+
+
+def is_proper(entry):
+    if "grammaticalFeatures" not in entry:
+        return False
+    grammatical_features = [ item["id"] for item in entry["grammaticalFeatures"] ]
+    return "proper" in grammatical_features
