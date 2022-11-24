@@ -3,7 +3,7 @@ import json
 
 from config import TESTS_DATA
 from cnb_oxford_dictionary.clue_filter.clue_tokens_extractor import extract_clue_tokens
-from cnb_oxford_dictionary.utils.definitions import get_sense_to_entry
+from cnb_oxford_dictionary.utils.definitions import get_sense_to_entry, get_cross_references
 from cnb_oxford_dictionary.download.caches import DefinitionsCache
 from cnb_oxford_dictionary.clue_filter.clue_tokens_extractor import extract_clue_tokens
 
@@ -13,9 +13,10 @@ def test_clue_tokens_extractor():
 
     definitions_cache = DefinitionsCache()
     sense_to_entry = get_sense_to_entry(definitions_cache)
+    cross_references = get_cross_references(definitions_cache)
 
     for sense_id, expected_tokens in test_data.items():
-        tokens = set(extract_clue_tokens(*sense_to_entry[sense_id]))
+        tokens = set(extract_clue_tokens(*sense_to_entry[sense_id], cross_references))
         expected_tokens = set(expected_tokens)
         assert (
             expected_tokens == tokens

@@ -14,7 +14,7 @@ def create_dict(DICT_PATH, OUTPUT_PATH, sentence_counts, sense_to_entry):
     new_dictionary = dict()
 
     for sense_id, dict_entry in dictionary.items():
-        _, entry, sense = sense_to_entry[sense_id]
+        _, _, entry, sense = sense_to_entry[sense_id]
 
         new_dictionary[sense_id] = {
             **dict_entry,

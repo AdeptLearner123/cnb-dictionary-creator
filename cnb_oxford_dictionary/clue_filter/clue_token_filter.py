@@ -2,6 +2,7 @@ from config import WORD_FREQ_FILTERED, CLUE_TOKEN_FILTERED
 from cnb_oxford_dictionary.download.caches import DefinitionsCache
 from cnb_oxford_dictionary.utils.definitions import iterate_senses
 from .clue_tokens_extractor import extract_clue_tokens
+from cnb_oxford_dictionary.utils.definitions import iterate_senses, get_cross_references
 
 import json
 
@@ -13,8 +14,10 @@ def main():
     definitions_cache = DefinitionsCache()
     sense_clue_tokens = dict()
 
-    for lexical_entry, entry, sense, word in iterate_senses(definitions_cache, words):
-        clue_tokens = extract_clue_tokens(lexical_entry, entry, sense)
+    cross_references = get_cross_references(definitions_cache)
+
+    for result, lexical_entry, entry, sense, word in iterate_senses(definitions_cache, words):
+        clue_tokens = extract_clue_tokens(result, lexical_entry, entry, sense, cross_references)
         if clue_tokens is not None:
             sense_clue_tokens[sense["id"]] = {
                 "tokens": clue_tokens,
