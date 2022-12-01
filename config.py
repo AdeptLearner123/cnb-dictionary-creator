@@ -24,6 +24,4 @@ COMPOUND_CLUE_FILTERED = "data/output/compound_clue_filtered.json"
 SEM_LINK_FILTERED = "data/output/sem_link_filtered.json"
 
 # Final outputs
-CLUE_TOKEN_DICT = "data/output/clue_token_dict.json"
-COMPOUND_DICT = "data/output/compound_dict.json"
-SEM_LINK_DICT = "data/output/sem_link_dict.json"
+DICTIONARY = "data/output/oxford_dict.json"

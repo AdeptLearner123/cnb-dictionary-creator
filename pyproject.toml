@@ -21,11 +21,8 @@ scrape-oxford-lemmas            = "cnb_oxford_dictionary.word_list_scraper.scrap
 compile-oxford-lemmas           = "cnb_oxford_dictionary.word_list_scraper.compile_lemmas:main"
 word-freq-filter                = "cnb_oxford_dictionary.word_freq_filter.filter:main"
 definitions-download            = "cnb_oxford_dictionary.definitions_download.download:main"
-clue-token-filter               = "cnb_oxford_dictionary.clue_filter.clue_token_filter:main"
-sem-link-filter                 = "cnb_oxford_dictionary.clue_filter.sem_link_filter:main"
-compound-clue-filter            = "cnb_oxford_dictionary.clue_filter.compound_clue_filter:main"
 sentences-download              = "cnb_oxford_dictionary.sentences_download.download:main"
-create-dicts                    = "cnb_oxford_dictionary.dictionary_creator.create_dicts:main"
+create-dict                     = "cnb_oxford_dictionary.dictionary_creator.create_dict:main"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"

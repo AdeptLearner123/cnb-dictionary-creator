@@ -1,4 +1,4 @@
-from cnb_oxford_dictionary.utils.definitions import is_proper
+from cnb_oxford_dictionary.utils.get_pos import is_proper
 
 PROPER_KNOWNNESS = 0.7
 KNOWNNESS_PER_SENT = 0.1

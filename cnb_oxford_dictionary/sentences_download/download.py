@@ -1,8 +1,7 @@
 import json
 from cnb_oxford_dictionary.download.api_downloader import download
 from cnb_oxford_dictionary.download.caches import SentencesCache
-from cnb_oxford_dictionary.utils.definitions import iterate_senses
-from config import CLUE_TOKEN_FILTERED, COMPOUND_CLUE_FILTERED, MISSING_SENTENCES
+from config import WORD_FREQ_FILTERED, MISSING_SENTENCES
 from argparse import ArgumentParser
 
 import os
@@ -51,13 +50,8 @@ def process_result(key, result):
 
 
 def main():
-    words = set()
-
-    with open(CLUE_TOKEN_FILTERED, "r") as file:
-        words.update([ item["word"] for item in json.loads(file.read()).values() ])
-
-    with open(COMPOUND_CLUE_FILTERED, "r") as file:
-        words.update([ item["word"] for item in json.loads(file.read()).values() ])
+    with open(WORD_FREQ_FILTERED, "r") as file:
+        words = file.read().splitlines()
 
     if os.path.isfile(MISSING_SENTENCES):
         with open(MISSING_SENTENCES, "r") as file:
