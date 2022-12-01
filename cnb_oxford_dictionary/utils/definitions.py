@@ -81,8 +81,14 @@ def get_definition_text(entry, sense):
         for note in entry["notes"]:
             if note["type"] == "encyclopedicNote":
                 sentences.append(note["text"])
-     
-    return " ".join([ append_period(sentence) for sentence in sentences]).strip()
+
+    text = " ".join([ append_period(sentence) for sentence in sentences]).strip()
+
+    if "domainClasses" in sense:
+        domain = sense["domainClasses"][0]["text"]
+        text = f"({domain}) {text}"
+    
+    return text
 
 
 def is_proper(entry):
