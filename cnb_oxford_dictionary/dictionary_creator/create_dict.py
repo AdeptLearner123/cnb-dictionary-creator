@@ -32,14 +32,11 @@ def main():
 
         if pos not in LEXICAL_CATEGORIES:
             continue
-
-        short_definition = sense["shortDefinitions"][0] if "shortDefinitions" in sense else sense["definitions"][0]
         
         dictionary[sense["id"]] = {
             "word": word,
             "pos": pos,
             "definition": get_definition_text(entry, sense),
-            "shortDefinition": short_definition,
             "knownness": get_knownness(entry, sentence_counts[sense["id"]]),
             "wordForms": get_word_forms(result, lexical_entry, entry, sense, cross_references),
             "semLinks": get_sem_links(sense)
