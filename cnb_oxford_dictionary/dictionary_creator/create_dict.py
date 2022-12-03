@@ -28,15 +28,18 @@ def main():
     dictionary = dict()
 
     for result, lexical_entry, entry, sense, word in iterate_senses(definitions_cache, words):
-        pos = get_pos(lexical_entry, entry)
-        
+        pos = lexical_entry["lexicalCategory"]["id"]
+
         if pos not in LEXICAL_CATEGORIES:
             continue
 
+        short_definition = sense["shortDefinitions"][0] if "shortDefinitions" in sense else sense["definitions"][0]
+        
         dictionary[sense["id"]] = {
             "word": word,
             "pos": pos,
             "definition": get_definition_text(entry, sense),
+            "shortDefinition": short_definition,
             "knownness": get_knownness(entry, sentence_counts[sense["id"]]),
             "wordForms": get_word_forms(result, lexical_entry, entry, sense, cross_references),
             "semLinks": get_sem_links(sense)
